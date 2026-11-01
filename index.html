@@ -2,47 +2,301 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tonk! Cricket</title>
-<meta name="description" content="Tonk! Cricket: bat, bowl and build a cricket career. Dry humour, fully offline, tiny download. By Muppet Dev.">
-<link rel="icon" href="icon.png">
-<style>
-  :root{--navy:#14264A;--lime:#C8F03C;--paper:#FBFCF7;--muted:#4A5A78}
-  body{margin:0;font:17px/1.6 Arial,Helvetica,sans-serif;color:var(--navy);background:var(--paper)}
-  main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem}
-  header{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
-  header img{width:96px;height:96px;border-radius:22px;box-shadow:0 6px 18px rgba(20,38,74,.25)}
-  h1{font-size:2.4rem;line-height:1.1;margin:0}
-  .by{color:var(--muted);margin:.2rem 0 0}
-  .lead{font-size:1.2rem;margin:2rem 0 1rem}
-  .soon{display:inline-block;background:var(--lime);color:var(--navy);font-weight:bold;padding:.45rem .8rem;border-radius:6px}
-  ul{padding-left:1.2rem}
-  li{margin:.3rem 0}
-  footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #D6DCE6;color:var(--muted);font-size:.92rem}
-  a{color:#1D4FA3}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tonk! Cricket: proper cricket for your phone</title>
+<meta name="description" content="Bat, bowl and field in 3D, then live a whole cricket career, from school at 15 to a Test cap. Under 10 MB, plays offline. Coming soon to Google Play.">
+<link rel="canonical" href="https://tonkcricket.com/">
+<meta name="theme-color" content="#0B1733">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tonk! Cricket">
+<meta property="og:title" content="Tonk! Cricket: proper cricket for your phone">
+<meta property="og:description" content="Bat, bowl and field in 3D, then live a whole career, from school at 15 to a Test cap. Under 10 MB, plays offline.">
+<meta property="og:url" content="https://tonkcricket.com/">
+<meta property="og:image" content="https://tonkcricket.com/img/share-1.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A batter in a pink shirt hits a six into a floodlit stadium at night, with the Tonk! Cricket logo.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tonk! Cricket: proper cricket for your phone">
+<meta name="twitter:description" content="Bat, bowl and field in 3D, then live a whole career, from school at 15 to a Test cap. Under 10 MB, plays offline.">
+<meta name="twitter:image" content="https://tonkcricket.com/img/share-1.jpg">
+<meta name="twitter:image:alt" content="A batter in a pink shirt hits a six into a floodlit stadium at night, with the Tonk! Cricket logo.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/lilita-one-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-540.webp" imagesrcset="img/hero-540.webp 540w, img/hero-810.webp 810w" imagesizes="(min-width: 720px) 405px, 100vw" fetchpriority="high">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["VideoGame", "MobileApplication"],
+  "name": "Tonk! Cricket",
+  "url": "https://tonkcricket.com/",
+  "description": "A cricket game for phones. Bat, bowl and field in 3D, then live a whole career, from school at 15 to a Test cap, or run the whole side in the Manager Career. Under 10 MB, plays offline.",
+  "image": "https://tonkcricket.com/img/share-1.jpg",
+  "screenshot": "https://tonkcricket.com/img/stick-720.webp",
+  "genre": ["Sports", "Cricket"],
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Android",
+  "gamePlatform": "Android",
+  "inLanguage": "en",
+  "author": { "@type": "Organization", "name": "Muppet Dev", "email": "josuecelliers@gmail.com", "url": "https://tonkcricket.com/" },
+  "publisher": { "@type": "Organization", "name": "Muppet Dev" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 </head>
 <body>
-<main>
-<header>
-  <img src="icon.png" alt="The Tonk! Cricket icon: a cricket ball with a deadpan face">
-  <div>
-    <h1>Tonk! Cricket</h1>
-    <p class="by">by Muppet Dev</p>
+<a class="skip" href="#main">Skip to the game</a>
+
+<header class="top" aria-label="Site">
+  <div class="wrap top-in">
+    <a class="brand" href="./"><img src="img/icon-96.webp" width="40" height="40" alt="">Tonk! Cricket</a>
+    <nav aria-label="Main"><a href="press.html">Press kit</a></nav>
   </div>
 </header>
-<p class="lead">Bat, bowl and build a cricket career. Dry humour, fully offline, tiny download.</p>
-<p><span class="soon">Coming to Google Play on 12 November 2026</span></p>
-<ul>
-  <li>Real 3D cricket: time your shots, bowl real swing, seam and spin, take the catches.</li>
-  <li>Pro Career: from club cricket to Test matches, with rivals, press conferences and awards nights.</li>
-  <li>Manager Career: pick your XI, win the auction and build a dynasty.</li>
-  <li>T10, T20, one-day matches and five-day Tests.</li>
-</ul>
-<footer>
-  <p><a href="privacy.html">Privacy policy</a> · Contact: josuecelliers@gmail.com</p>
-  <p>All player names are parodies. Not affiliated with or endorsed by any player, team, board or league.</p>
-</footer>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="game-name">
+  <div class="hero-in">
+    <div class="hero-media">
+      <img src="img/hero-540.webp" srcset="img/hero-540.webp 540w, img/hero-810.webp 810w" sizes="(min-width: 720px) 405px, 100vw" width="540" height="960" fetchpriority="high"
+           alt="A moment from the game, under floodlights: the last ball, six needed to win (the score bar reads NEED 6 OFF 1), and the batter has just lofted it high towards the stands.">
+      <video muted loop playsinline preload="none" width="540" height="960" data-src="media/hero-six.mp4" aria-hidden="true" tabindex="-1"></video>
+      <button class="clip-btn" type="button" hidden>Pause the clip</button>
+    </div>
+    <div class="hero-copy">
+      <h1 id="game-name"><svg class="logo" viewBox="0 0 680 318" role="img" aria-label="Tonk! Cricket" focusable="false"><defs><g id="tcl-word"><path d="M0 0H124V38H83V150H41V38H0Z" transform="translate(-302.5 -76) rotate(-3 62 75)"></path><path d="M64 0C110 0 128 30 128 75C128 120 110 150 64 150C18 150 0 120 0 75C0 30 18 0 64 0ZM64 38C51 38 43 51 43 75C43 99 51 112 64 112C77 112 85 99 85 75C85 51 77 38 64 38Z" transform="translate(-165.5 -70) rotate(2 64 75)"></path><path d="M0 0H44L82 70V0H124V150H80L42 80V150H0Z" transform="translate(-23.5 -78) rotate(-2 62 75)"></path><path d="M0 0H42V56L77 0H126L79 72L129 150H78L42 94V150H0Z" transform="translate(113.5 -72) rotate(3 64.5 75)"></path><path d="M1 0H47L40 101H8ZM24 111C36 111 44 119 44 131C44 143 36 151 24 151C12 151 4 143 4 131C4 119 12 111 24 111Z" transform="translate(254.5 -81) rotate(9 24 75)"></path></g><clipPath id="tcl-clip"><path d="M0 0H124V38H83V150H41V38H0Z" transform="translate(-302.5 -76) rotate(-3 62 75)"></path><path d="M64 0C110 0 128 30 128 75C128 120 110 150 64 150C18 150 0 120 0 75C0 30 18 0 64 0ZM64 38C51 38 43 51 43 75C43 99 51 112 64 112C77 112 85 99 85 75C85 51 77 38 64 38Z" transform="translate(-165.5 -70) rotate(2 64 75)"></path><path d="M0 0H44L82 70V0H124V150H80L42 80V150H0Z" transform="translate(-23.5 -78) rotate(-2 62 75)"></path><path d="M0 0H42V56L77 0H126L79 72L129 150H78L42 94V150H0Z" transform="translate(113.5 -72) rotate(3 64.5 75)"></path><path d="M1 0H47L40 101H8ZM24 111C36 111 44 119 44 131C44 143 36 151 24 151C12 151 4 143 4 131C4 119 12 111 24 111Z" transform="translate(254.5 -81) rotate(9 24 75)"></path></clipPath><linearGradient id="tcl-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2FFA8"></stop><stop offset=".38" stop-color="#D4F74A"></stop><stop offset=".72" stop-color="#BDE82E"></stop><stop offset="1" stop-color="#95C81C"></stop></linearGradient><linearGradient id="tcl-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".75"></stop><stop offset=".7" stop-color="#FFFFFF" stop-opacity=".12"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient><linearGradient id="tcl-rib" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4424F"></stop><stop offset=".5" stop-color="#C4232F"></stop><stop offset="1" stop-color="#951622"></stop></linearGradient><filter id="tcl-soft" x="-10%" y="-20%" width="120%" height="150%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs><g transform="translate(340 118) rotate(-5) skewX(-7)"><g filter="url(#tcl-soft)" opacity=".42"><use xlink:href="#tcl-word" y="24" fill="#07101F" stroke="#07101F" stroke-width="30" stroke-linejoin="round"></use></g><use xlink:href="#tcl-word" y="13" fill="#0E1210" stroke="#0E1210" stroke-width="27" stroke-linejoin="round"></use><use xlink:href="#tcl-word" y="6" fill="#0E1210" stroke="#0E1210" stroke-width="27" stroke-linejoin="round"></use><use xlink:href="#tcl-word" fill="#0E1210" stroke="#0E1210" stroke-width="27" stroke-linejoin="round"></use><use xlink:href="#tcl-word" y="9" fill="#5E8A10" stroke="#5E8A10" stroke-width="10" stroke-linejoin="round"></use><use xlink:href="#tcl-word" fill="#0E1210" stroke="#0E1210" stroke-width="14" stroke-linejoin="round"></use><use xlink:href="#tcl-word" fill="url(#tcl-face)" stroke="url(#tcl-face)" stroke-width="9" stroke-linejoin="round"></use><g clip-path="url(#tcl-clip)"><rect x="-320" y="-86" width="640" height="78" fill="url(#tcl-gloss)"></rect></g></g><g transform="translate(340 262) rotate(-3) skewX(-10)"><path d="M-236 -18H-176V36H-236L-218 9Z" fill="#6E0E17" stroke="#0E1210" stroke-width="6" stroke-linejoin="round" transform="translate(0 10)"></path><path d="M236 -18H176V36H236L218 9Z" fill="#6E0E17" stroke="#0E1210" stroke-width="6" stroke-linejoin="round" transform="translate(0 10)"></path><rect x="-200" y="-32" width="400" height="66" rx="6" fill="#0E1210" transform="translate(0 9)"></rect><rect x="-200" y="-32" width="400" height="66" rx="6" fill="url(#tcl-rib)" stroke="#0E1210" stroke-width="6" stroke-linejoin="round"></rect><rect x="-192" y="-26" width="384" height="10" rx="4" fill="#FFFFFF" opacity=".16"></rect><path d="M-184 -21H184M-184 23H184" stroke="#F4ECD8" stroke-opacity=".6" stroke-width="2.4" stroke-dasharray="8 7" stroke-linecap="round"></path><text x="0" y="20" text-anchor="middle" class="logo-cricket logo-cricket--sh" textLength="292" lengthAdjust="spacingAndGlyphs">CRICKET</text><text x="0" y="16" text-anchor="middle" class="logo-cricket" textLength="292" lengthAdjust="spacingAndGlyphs">CRICKET</text></g></svg></h1>
+      <p class="pitch">Proper cricket for your phone, played with a perfectly straight face.</p>
+
+      <div class="get">
+        <p class="get-when" id="get-when">Coming soon to Google Play</p>
+        <!-- AT LAUNCH: wrap the badge in <a href="https://play.google.com/store/apps/details?id=com.tonkcricket.game"> and change the line above to "Out now on Google Play". -->
+        <img class="badge" src="img/google-play-badge.png" width="646" height="250" alt="Google Play" aria-describedby="get-when">
+        <p class="get-note">No date yet: the groundsman is still mowing the stripes. <b>Coming to iPhone later.</b></p>
+      </div>
+      <p class="specifics">Bat, bowl and field in 3D, then live a whole career, from school cricket at 15 to a Test cap. Under 10&nbsp;MB, plays offline, no account needed.</p>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true"></div>
+</section>
+
+<section class="sec sec--cream bat" aria-labelledby="bat-h">
+  <div class="wrap bat-in">
+    <figure class="bat-shot">
+      <img class="shot" src="img/stick-480.webp" srcset="img/stick-480.webp 480w, img/stick-720.webp 720w" sizes="(min-width: 860px) 380px, 84vw" width="480" height="690" loading="lazy" decoding="async"
+           alt="Batting with the ADVANCED controls: the batter waits at the crease, the stick at the bottom left is aimed at cover, and the CHEEKY, DEFEND, LOFT and PLAY buttons sit beside it.">
+    </figure>
+    <div class="bat-copy">
+      <h2 id="bat-h">Time it. Tonk it.</h2>
+      <p class="lead">Pick your side and nail the timing. Or switch to Advanced batting: aim the stick at the gap you want, choose <span class="ui">Defend</span> or <span class="ui">Loft</span>, and press <span class="ui">Play</span> on time.</p>
+      <p>Turn on <span class="ui">Cheeky</span> and the stick picks the shot: the sweep, the reverse sweep, the scoop or the ramp. Push it straight up for <span class="ui">The Charge</span>, down the track and over the bowler&rsquo;s head. Miss one against a spinner and the keeper will be delighted.</p>
+      <p>Then bowl: pace, finger spin or wrist spin, with 19 deliveries in all, unlocked as your bowler grows, aim at the pitch, run in, and set the batter up over a spell.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--navy marker" aria-labelledby="marker-h">
+  <div class="wrap">
+    <div class="marker-head">
+      <h2 id="marker-h">The colour tells you the length.</h2>
+      <p class="lead">A marker shows where the ball will land, and its colour tells you how full it is. A colour-blind setting switches the colours and gives each length its own shape too.</p>
+    </div>
+    <ol class="lengths" aria-label="The five lengths, fullest first, each a real frame from the game">
+      <li><img src="img/len-yorker-270.webp" srcset="img/len-yorker-270.webp 270w, img/len-yorker-405.webp 405w" sizes="(min-width: 860px) 210px, 150px" width="270" height="335" loading="lazy" decoding="async" alt="A cyan marker right at the batter's feet."><span class="len-name"><i style="--c:#44E4F4"></i><span>Yorker<span class="len-m">under 1.8 m</span></span></span></li>
+      <li><img src="img/len-full-270.webp" srcset="img/len-full-270.webp 270w, img/len-full-405.webp 405w" sizes="(min-width: 860px) 210px, 150px" width="270" height="335" loading="lazy" decoding="async" alt="A lime marker a little in front of the batter."><span class="len-name"><i style="--c:#C8F03C"></i><span>Full<span class="len-m">1.8 to 4 m</span></span></span></li>
+      <li><img src="img/len-good-270.webp" srcset="img/len-good-270.webp 270w, img/len-good-405.webp 405w" sizes="(min-width: 860px) 210px, 150px" width="270" height="335" loading="lazy" decoding="async" alt="A cream marker further up the pitch."><span class="len-name"><i style="--c:#F4ECD8"></i><span>Good length<span class="len-m">4 to 7 m</span></span></span></li>
+      <li><img src="img/len-short-270.webp" srcset="img/len-short-270.webp 270w, img/len-short-405.webp 405w" sizes="(min-width: 860px) 210px, 150px" width="270" height="335" loading="lazy" decoding="async" alt="An amber marker halfway down the pitch."><span class="len-name"><i style="--c:#F5A524"></i><span>Short<span class="len-m">7 to 9.5 m</span></span></span></li>
+      <li><img src="img/len-bouncer-270.webp" srcset="img/len-bouncer-270.webp 270w, img/len-bouncer-405.webp 405w" sizes="(min-width: 860px) 210px, 150px" width="270" height="335" loading="lazy" decoding="async" alt="A red marker far down the pitch, near the bowler."><span class="len-name"><i style="--c:#FF3A44"></i><span>Bouncer<span class="len-m">9.5 m and more</span></span></span></li>
+    </ol>
+    <p class="scroll-hint">Swipe for the shorter ones. Distances are from the batter&rsquo;s stumps.</p>
+  </div>
+</section>
+
+<section class="sec sec--cream career" aria-labelledby="career-h">
+  <div class="wrap career-in">
+    <div>
+      <h2 id="career-h">School at 15. A Test cap, if your form earns it.</h2>
+      <p class="lead">Create your player, pick your school and start at the bottom. Play as a batter, bowler, all-rounder or wicketkeeper. Your form decides selection, and good spells earn you more overs.</p>
+      <ol class="ladder" aria-label="The Pro Career, step by step">
+        <li><span class="age">15</span><b>School cricket</b></li>
+        <li><span class="age">16</span><b>Club cricket</b></li>
+        <li><b>The Under-19s</b>: youth one-dayers, youth Tests, the Under-19 World Cup</li>
+        <li><b>A provincial side</b></li>
+        <li><b>The A side</b></li>
+        <li><b>A franchise league</b></li>
+        <li><b>International cricket</b>, and the Test cap</li>
+      </ol>
+      <p>Along the way there are debuts, rivals, press conferences, awards nights and a social feed that never raises its voice. Hundreds of other players age, peak, retire and are replaced around you, season after season.</p>
+    </div>
+    <div class="career-side">
+      <figure class="cap">
+        <img class="shot" src="img/cap-480.webp" srcset="img/cap-480.webp 480w, img/cap-720.webp 720w" sizes="(min-width: 900px) 420px, 88vw" width="480" height="502" loading="lazy" decoding="async"
+             alt="The Test cap screen: a navy cap above the words TEST CAP #412 and the line: If you play. The cap is presented on the morning of the match. It will be slightly too big.">
+        <figcaption>The call-up. The cap really is slightly too big.</figcaption>
+      </figure>
+      <div class="feed">
+        <p class="feed-label">Meanwhile, on the feed:</p>
+        <article class="post"><p class="who"><span class="reg">Reg (Head Groundsman)</span><span>@GroundsmanReg</span></p><p>Pat, your crumbs are on my square again. I have photographs. Dated.</p></article>
+        <article class="post"><p class="who"><span class="pat">Pat&rsquo;s Pies (Gate C)</span><span>@PatsPiesGateC</span></p><p>Reg, those were not my crumbs. Those were somebody else&rsquo;s crumbs. I sell a better class of crumb.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec mgr" aria-labelledby="mgr-h">
+  <div class="wrap mgr-in">
+    <figure class="mgr-shot">
+      <img class="shot" src="img/field-480.webp" srcset="img/field-480.webp 480w, img/field-720.webp 720w" sizes="(min-width: 900px) 400px, 88vw" width="480" height="690" loading="lazy" decoding="async"
+           alt="The Manager Career's field editor: a round field from above with each fielder as a dot, cover selected, and buttons to save the field.">
+      <figcaption>The field editor. Drag him, or tap where he goes.</figcaption>
+    </figure>
+    <div class="mgr-copy">
+      <h2 id="mgr-h">Or run the whole side.</h2>
+      <p class="lead">The Manager Career puts you in charge of a club, a province, a franchise or a national side.</p>
+      <div class="sheet">
+        <p class="sheet-title">The manager&rsquo;s team sheet <span>Eleven jobs, in batting order</span></p>
+        <ol>
+          <li>Pick the XI.</li>
+          <li>Set your plans.</li>
+          <li>Haggle over wages.</li>
+          <li>And over contract lengths.</li>
+          <li>Beat rival owners to the best players at the franchise auction.</li>
+          <li>Put every fielder exactly where you want him.</li>
+          <li>Send fringe players out on loan.</li>
+          <li>Borrow cover when injuries bite.</li>
+          <li>Play friendlies against all-time legend XIs.</li>
+          <li>Build an academy.</li>
+          <li>Sim the match in a moment and watch the highlights, or play it yourself in full 3D.</li>
+        </ol>
+      </div>
+      <p class="note">Your first season is free. After that the Manager Career is a one-time unlock.</p>
+    </div>
+  </div>
+</section>
+
+<section class="formats" aria-labelledby="formats-h">
+  <figure class="formats-wide">
+    <img src="img/night-960.webp" srcset="img/night-960.webp 960w, img/night-1600.webp 1600w, img/night-2048.webp 2048w" sizes="100vw" width="2048" height="1000" loading="lazy" decoding="async"
+         alt="A floodlit stadium at night: the batter has just hit the ball high towards the stands, and the big screen shows his score, 51 off 49 balls.">
+  </figure>
+  <div class="wrap formats-in">
+    <div class="formats-copy">
+      <h2 id="formats-h">T10 to <span class="nw">five-day</span> Tests.</h2>
+      <table class="board">
+        <caption>The formats</caption>
+        <tbody>
+          <tr><th scope="row">T10</th><td>10 overs a side.</td></tr>
+          <tr><th scope="row">T20</th><td>20 overs a side, with powerplays.</td></tr>
+          <tr><th scope="row">One-day</th><td>50 overs a side, with powerplays.</td></tr>
+          <tr><th scope="row">Test</th><td>Two innings each, up to five days, with lunch and tea.</td></tr>
+        </tbody>
+      </table>
+      <p>With DRS, weather and a pitch that wears. Day games, floodlit night games, and day/night Tests with the pink ball.</p>
+    </div>
+    <div class="pair">
+      <figure>
+        <img class="shot" src="img/test-480.webp" srcset="img/test-480.webp 480w, img/test-720.webp 720w" sizes="(min-width: 900px) 250px, 44vw" width="480" height="641" loading="lazy" decoding="async"
+             alt="A batter in Test whites raises his bat and helmet to the crowd after reaching a hundred, with an old pavilion and clock tower behind him.">
+        <figcaption>A hundred on day four.</figcaption>
+      </figure>
+      <figure>
+        <img class="shot" src="img/drs-480.webp" srcset="img/drs-480.webp 480w, img/drs-720.webp 720w" sizes="(min-width: 900px) 250px, 44vw" width="480" height="690" loading="lazy" decoding="async"
+             alt="A review: ball tracking shows the ball pitching in line and hitting the stumps. The banner reads OUT, on-field decision stands.">
+        <figcaption>Ball tracking: in line, hitting. The finger stays up.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream quick" aria-labelledby="quick-h">
+  <div class="wrap quick-in">
+    <div>
+      <h2 id="quick-h">No time for a Test?</h2>
+      <ul class="quick-list">
+        <li><b>Quick and custom matches</b>A quick chase, or your own match: your overs, your ground, your pitch.</li>
+        <li><b>Party games</b>Six Smash, Super Overs, Last Over to Win and Bowl Them Out.</li>
+        <li><b>A World Cup</b>Pick a nation. Win the whole thing.</li>
+        <li><b>Pass &amp; Play</b>Two to eight friends on one phone, in matches and tournaments.</li>
+        <li><b>Nets and challenges</b>Nets drills, a daily challenge and three new scenarios every week.</li>
+        <li><b>Four difficulties</b>Gentle, Tidy, Fiery and Brutal. The names are accurate.</li>
+        <li><b>Made for any phone</b>Under 10 MB to download. Plays offline. Runs smoothly on budget phones.</li>
+      </ul>
+    </div>
+    <figure class="pnp">
+      <img class="shot" src="img/pnp-480.webp" srcset="img/pnp-480.webp 480w, img/pnp-720.webp 720w" sizes="300px" width="480" height="690" loading="lazy" decoding="async"
+           alt="A Pass and Play round-robin tournament for five players: the table, the results so far and the next match, Priya against Thandi.">
+      <figcaption>Pass &amp; Play: Priya v Thandi, match 5 of 10.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec fair" aria-labelledby="fair-h">
+  <div class="wrap">
+    <h2 id="fair-h">The small print, in large print.</h2>
+    <p class="fair-line">Free to start. Adverts only when you choose one for a reward. One-time purchases, no subscriptions. Nothing you buy makes a batter hit harder or a result easier.</p>
+    <p>School cricket costs nothing. From your first club season, each career match uses a match ticket: you hold three (two on Gentle), they all come back 30 minutes after you run out, and an advert you choose to watch gets you one sooner. Quick matches, custom matches, the World Cup and the nets are always free. The Full Game is a one-time purchase: no tickets and no adverts. The Manager Career is a separate one-time unlock after its free first season. Three extra grounds come with any purchase. Timing and skill decide every match.</p>
+  </div>
+</section>
+
 </main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="share" hidden>
+      <p>Know a cricket group that should see this?</p>
+      <button type="button">Share the link</button>
+      <output aria-live="polite"></output>
+    </div>
+    <p class="maker"><img src="img/muppet-dev-96.webp" width="48" height="48" alt="">Tonk! Cricket is made by Muppet Dev, a one-person studio.</p>
+    <ul class="foot-links">
+      <li><a href="press.html">Press kit</a></li>
+      <li><a href="privacy.html">Privacy policy</a></li>
+    </ul>
+    <p>Contact: <a href="mailto:josuecelliers@gmail.com">josuecelliers@gmail.com</a></p>
+    <p class="legal">All player names are parodies. Not affiliated with or endorsed by any player, team, board or league.</p>
+    <p class="legal">Google Play and the Google Play logo are trademarks of Google LLC. &copy; 2026 Muppet Dev.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // The hero clip (0.4 MB) loads only after the page has, and not when the phone is saving data, is on a 2G-speed
+  // connection or asks for less motion: then it waits for a tap. Without JavaScript, the still frame is the hero.
+  var v = document.querySelector('.hero-media video'), btn = document.querySelector('.clip-btn');
+  if (v && btn) {
+    var c = navigator.connection || {}, slow = !!c.saveData || /2g$/.test(c.effectiveType || '');
+    var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var start = function () {
+      if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); }
+      var p = v.play(); if (p && p.catch) p.catch(function () { btn.textContent = 'Play the clip'; });
+    };
+    v.addEventListener('playing', function () { v.className = 'on'; btn.textContent = 'Pause the clip'; });
+    v.addEventListener('pause', function () { btn.textContent = 'Play the clip'; });
+    btn.addEventListener('click', function () { if (v.paused) start(); else v.pause(); });
+    btn.hidden = false;
+    if (slow || calm) { btn.textContent = 'Play the clip (0.4 MB)'; }
+    else if (document.readyState === 'complete') { start(); }
+    else { window.addEventListener('load', start); }
+  }
+  // Share: the phone's own share sheet (WhatsApp and the rest), or copy the link.
+  var box = document.querySelector('.share');
+  if (box && (navigator.share || (navigator.clipboard && window.isSecureContext))) {
+    var out = box.querySelector('output');
+    box.hidden = false;
+    box.querySelector('button').addEventListener('click', function () {
+      var url = 'https://tonkcricket.com/';
+      if (navigator.share) {
+        navigator.share({ title: 'Tonk! Cricket', text: 'Proper cricket for your phone. Coming soon to Google Play.', url: url }).catch(function () {});
+      } else {
+        navigator.clipboard.writeText(url).then(function () { out.textContent = 'Link copied.'; }, function () { out.textContent = url; });
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
