@@ -113,6 +113,8 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 .badge { width: 160px; height: auto; } /* the official file carries its own clear space */
 .get-note { margin: .2rem 0 0; font-size: 1rem; color: var(--cream-dim); line-height: 1.45; max-width: 28em; }
 .get-note a { color: var(--cream); }
+.cred { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--navy-hi); font: 700 .98rem/1.5 var(--f-cond); letter-spacing: .04em; text-transform: uppercase; color: var(--cream); max-width: 34em; }
+.cred span::before { content: "\00B7"; margin: 0 .5em; color: var(--lime); }
 .stripes { /* a mown outfield: the hero's edge */
   height: 22px;
   background: repeating-linear-gradient(90deg, #2F7A35 0 56px, #3B8C3F 56px 112px);
@@ -155,25 +157,12 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
   .bat-copy { padding-top: 32px; }
 }
 
-/* the marker: five real frames, one per length */
-.marker h2 { max-width: 12em; }
-.lengths { list-style: none; margin: 28px 0 0; padding: 0 0 6px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 1fr); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; }
-.lengths li { scroll-snap-align: start; }
-.lengths img { border-radius: 10px; border: 3px solid var(--navy-hi); width: 100%; }
-.len-name { display: flex; align-items: center; gap: .5rem; margin-top: .6rem; font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: 1.1rem; }
-.len-name i { width: 18px; height: 18px; border-radius: 50%; background: var(--c); border: 2px solid var(--ink); flex: none; }
-.len-m { display: block; font-family: var(--f-body); font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--cream-dim); font-size: .95rem; }
-.scroll-hint { font-size: .95rem; color: var(--cream-dim); margin-top: .8rem; }
-@media (min-width: 640px) {
-  .lengths { overflow: visible; grid-auto-columns: 1fr; }
-  .scroll-hint { display: none; }
-}
-@media (min-width: 860px) {
-  .marker-head { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: end; }
-  .marker-head p { margin-bottom: .5em; }
-  .lengths { overflow: visible; grid-auto-columns: 1fr; }
-  .scroll-hint { display: none; }
-}
+/* the length marker: one strip of real frames and a key */
+.len-strip { margin-top: 14px; max-width: 640px; }
+.len-strip img { width: 100%; border-radius: 10px; border: 3px solid var(--navy-hi); }
+.len-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: .6rem; color: var(--cream); }
+.len-key span { display: inline-flex; align-items: center; gap: .4rem; }
+.len-key i { width: 14px; height: 14px; border-radius: 50%; background: var(--c); border: 2px solid var(--ink); flex: none; }
 
 /* Pro Career: the ladder as six real frames, then the record book */
 .career-head { display: grid; gap: 4px 56px; }
@@ -228,10 +217,10 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 }
 
 /* formats: the floodlit six across the whole width, then the words and two portraits */
-.formats { background: var(--navy); color: var(--cream); padding-bottom: clamp(56px, 9vw, 120px); }
+.formats { background: var(--paper); color: var(--ink); padding-bottom: clamp(56px, 9vw, 120px); }
 .formats-wide img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% 50%; }
 .formats-in { display: grid; gap: 32px; padding-top: clamp(32px, 5vw, 64px); }
-.formats p { color: var(--cream); }
+.formats .sub { margin-top: 1.4em; }
 .board { border-collapse: collapse; width: 100%; max-width: 34rem; margin: .4rem 0 1.4rem; background: #10131A; color: var(--cream); border: 6px solid #2B2F38; border-radius: 4px; }
 .board caption { text-align: left; font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--lime); padding-bottom: .4rem; font-size: 1.05rem; }
 .board th, .board td { padding: .7em .9em; border-bottom: 2px solid #2B2F38; text-align: left; vertical-align: top; }
@@ -239,28 +228,25 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 .board th { font-family: var(--f-display); font-weight: 400; font-size: 1.35rem; line-height: 1.1; white-space: nowrap; width: 6.2rem; color: #FFFFFF; }
 .board td { font-size: 1.05rem; line-height: 1.35; color: var(--cream); }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.pair figcaption { color: var(--cream-dim); }
+.pair figcaption { color: var(--ink-soft); }
 @media (min-width: 900px) {
   .formats-wide img { aspect-ratio: auto; height: min(64vh, 620px); object-position: 30% 45%; }
   .formats-in { grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 72px; align-items: start; }
   .formats-copy { padding-top: 8px; }
 }
 
-/* more ways to play */
-.more-in { display: grid; gap: 32px; }
-.modes { margin: 0; }
-.modes > div { padding: .6em 0; border-bottom: 2px solid #E3DAC4; display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 4px 16px; align-items: baseline; }
-.modes dt { font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; font-size: 1.12rem; }
+/* other ways to play: a compact list inside the formats block */
+.modes { margin: 0; max-width: 36rem; }
+.modes > div { padding: .5em 0; border-bottom: 2px solid #E3DAC4; display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 2px 16px; align-items: baseline; }
+.modes dt { font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; font-size: 1.08rem; }
 .modes dd { margin: 0; line-height: 1.4; }
-.pnp { max-width: 300px; }
 @media (max-width: 420px) { .modes > div { grid-template-columns: 1fr; } }
-@media (min-width: 720px) {
-  .more-in { grid-template-columns: minmax(0, 1fr) minmax(200px, 300px); gap: clamp(32px, 6vw, 72px); align-items: center; }
-}
 
 /* coins and stumps */
 .stumps-in { display: grid; gap: 28px; }
-.stump-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+.stump-row { list-style: none; margin: 0; padding: 0 0 6px; display: grid; grid-auto-flow: column; grid-auto-columns: 38vw; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; }
+.stump-row li { scroll-snap-align: start; }
+@media (min-width: 640px) { .stump-row { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; gap: 14px 12px; overflow: visible; padding: 0; } }
 .stump-row img { width: 100%; border-radius: 10px; border: 3px solid var(--navy-hi); }
 .stump-row span { display: block; margin-top: .45rem; font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: 1.1rem; }
 .missions { max-width: 480px; }
@@ -365,4 +351,39 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 }
 @media print {
   .hero-media video, .clip-btn, .share { display: none !important; }
+}
+
+/* the pre-register link repeated at the end of a section */
+.again { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 1.6rem 0 0; font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: 1.1rem; }
+.again a { text-decoration-thickness: 3px; text-underline-offset: 5px; text-decoration-color: var(--lime-deep); }
+.again span { font-size: .95rem; color: var(--ink-soft); }
+.sec--navy .again a, .stumps .again a { color: var(--lime); text-decoration-color: var(--lime); }
+.sec--navy .again span { color: var(--cream-dim); }
+.career .again, .stumps-again { grid-column: 1 / -1; }
+
+/* the phone's pre-register bar: after the hero, never over the content (the footer makes room for it) */
+.stick { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--navy-deep); border-top: 3px solid var(--lime);
+  transform: translateY(110%); visibility: hidden; }
+.stick.on { transform: none; visibility: visible; }
+.stick .cta { font-size: 1.02rem; padding: .7em .9em .65em; box-shadow: 0 3px 0 var(--lime-deep); }
+.stick span { font: 700 1rem/1.1 var(--f-cond); text-transform: uppercase; letter-spacing: .05em; color: var(--cream); white-space: nowrap; }
+@media (prefers-reduced-motion: no-preference) { .stick { transition: transform .25s ease, visibility .25s; } }
+@media (min-width: 720px) { .stick { display: none !important; } }
+@media (max-width: 719px) { .foot--bar { padding-bottom: calc(40px + 70px + env(safe-area-inset-bottom, 0px)); } }
+
+/* What's new */
+.news .lead { color: var(--ink-soft); }
+.news-post { border-top: 3px solid var(--ink); padding-top: 1.2rem; margin-top: 2rem; }
+.news-post h2 { margin-top: .1em; }
+.post-date { font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--red); margin: 0; }
+.post-img { width: min(48vw, 200px); border-radius: 12px; border: 3px solid var(--ink); margin: 0 0 1rem; }
+@media (min-width: 640px) { .post-img { float: right; margin: 0 0 1rem 1.5rem; } .news-post::after { content: ""; display: block; clear: both; } }
+.formats .board caption { color: var(--red); }
+
+/* phones: smaller screenshots, so the page is a shorter scroll */
+@media (max-width: 719px) {
+  .bat-shot { width: min(66vw, 300px); }
+  .mgr-shot { max-width: min(66vw, 300px); }
+  .records img { width: min(56vw, 230px); }
 }
