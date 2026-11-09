@@ -387,3 +387,4 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
   .mgr-shot { max-width: min(66vw, 300px); }
   .records img { width: min(56vw, 230px); }
 }
+.cred span { white-space: nowrap; }
