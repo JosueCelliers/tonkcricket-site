@@ -137,6 +137,22 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
   .get-note { font-size: 1.05rem; }
 }
 
+/* the hero clip shows its whole frame everywhere: on a phone a portrait card above the logo (nothing on top of
+   the shot), on a short landscape screen a card that fits the height */
+@media (max-width: 719px) {
+  .hero-media { width: min(84vw, 34vh); width: min(84vw, 34svh); height: auto; max-height: none; aspect-ratio: 9 / 16;
+    margin: 0 auto; border-radius: 14px; border: 3px solid var(--navy-hi); }
+  .hero-in { padding-top: 14px; } /* padding, not margin: a margin would collapse through and show the page above the hero */
+  .hero-media::after { display: none; }
+  .hero-copy { margin-top: 0; padding-top: 20px; }
+  .clip-btn { top: auto; bottom: 10px; right: 8px; }
+}
+@media (min-width: 720px) and (max-height: 560px) {
+  .hero-in { align-items: start; }
+  .hero-media { height: calc(100vh - 90px); height: calc(100svh - 90px); }
+  .hero h1 { width: min(100%, 360px); }
+}
+
 /* ---------------------------------------------------------------- sections */
 .sec { padding-block: clamp(56px, 9vw, 120px); }
 .shot { border-radius: 14px; border: 3px solid var(--ink); background: var(--navy); }
