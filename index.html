@@ -81,7 +81,7 @@
 <section class="hero" aria-labelledby="game-name">
   <div class="hero-in">
     <div class="hero-media">
-      <a class="trailer" href="https://www.youtube.com/watch?v=je57xUyOyPU" data-yt="je57xUyOyPU" aria-label="Play the trailer (52 seconds, opens a YouTube player)">
+      <a class="trailer" href="https://www.youtube.com/watch?v=je57xUyOyPU" data-yt="je57xUyOyPU" aria-label="Play the trailer (52 seconds)">
         <img src="img/trailer-640.webp" srcset="img/trailer-640.webp 640w, img/trailer-960.webp 960w" sizes="(min-width: 720px) 640px, 100vw" width="640" height="360" fetchpriority="high"
              alt="A batter in a sunhat plays the ball off his pads at dusk, with a village ground behind him.">
         <span class="play" aria-hidden="true"></span>
@@ -367,22 +367,23 @@
 
 <script>
 (function () {
-  // The trailer: nothing is asked of YouTube until the visitor presses play. Without JavaScript the link opens YouTube.
+  // The trailer: nothing loads until the visitor presses play, then our own MP4 plays here. Without JavaScript the link opens YouTube.
   var tr = document.querySelector('a.trailer[data-yt]');
   if (tr) {
-    var warm = function () {
-      if (warm.done) return; warm.done = true;
-      var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://www.youtube-nocookie.com'; document.head.appendChild(l);
-    };
-    tr.addEventListener('pointerover', warm); tr.addEventListener('touchstart', warm, { passive: true });
     tr.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
       e.preventDefault();
-      var box = document.createElement('div'), f = document.createElement('iframe');
+      // (16 Nov: the trailer plays from this site. YouTube's embed asked some phones to "sign in to confirm you're not a
+      // bot"; our own MP4 plays everywhere. Nothing loads until the tap.)
+      var box = document.createElement('div'), f = document.createElement('video');
       box.className = 'trailer trailer--on';
-      f.src = 'https://www.youtube-nocookie.com/embed/' + tr.getAttribute('data-yt') + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
-      f.title = 'Tonk! Cricket trailer'; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.loading = 'eager';
-      box.appendChild(f); tr.parentNode.replaceChild(box, tr); f.focus();
+      f.src = '/press/tonk-cricket-trailer-16x9.mp4'; f.controls = true; f.autoplay = true; f.playsInline = true;
+      f.setAttribute('playsinline', ''); f.preload = 'auto'; f.poster = '/img/trailer-960.webp';
+      f.setAttribute('aria-label', 'Tonk! Cricket trailer, 52 seconds');
+      f.style.width = '100%'; f.style.height = '100%'; f.style.display = 'block'; f.style.background = '#000';
+      box.appendChild(f); tr.parentNode.replaceChild(box, tr);
+      var pr = f.play && f.play(); if (pr && pr.catch) pr.catch(function () {});
+      f.focus();
     });
   }
   // The clip of the last ball (0.4 MB). On a phone it waits for a tap. On a bigger screen it loads after the page has, once it is in
