@@ -112,7 +112,7 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 .out { margin: 0; font: 700 1.2rem/1.1 var(--f-cond); text-transform: uppercase; letter-spacing: .05em; color: var(--cream); }
 .badge-link { display: inline-block; margin: 8px 0 0 -11px; }
 .badge { width: 160px; height: auto; } /* the official file carries its own clear space */
-.get-note { margin: .2rem 0 0; font-size: 1rem; color: var(--cream-dim); line-height: 1.45; max-width: 28em; }
+.get-note { margin: .6rem 0 0; font-size: 1rem; color: var(--cream-dim); line-height: 1.45; max-width: 28em; }
 .get-note a { color: var(--cream); }
 .cred { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid var(--navy-hi); font: 700 .98rem/1.5 var(--f-cond); letter-spacing: .04em; text-transform: uppercase; color: var(--cream); max-width: 34em;
   display: flex; flex-wrap: wrap; gap: .1em 1.1em; }
@@ -140,12 +140,22 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 /* the hero clip shows its whole frame everywhere: on a phone a portrait card above the logo (nothing on top of
    the shot), on a short landscape screen a card that fits the height */
 @media (max-width: 719px) {
-  .hero-media { width: min(84vw, 34vh); width: min(84vw, 34svh); height: auto; max-height: none; aspect-ratio: 9 / 16;
-    margin: 0 auto; border-radius: 14px; border: 3px solid var(--navy-hi); }
-  .hero-in { padding-top: 14px; } /* padding, not margin: a margin would collapse through and show the page above the hero */
+  /* the whole clip on the left, the name and the pitch beside it, the button and the date under both: all of it on the
+     first screen of a 360 x 740 phone (padding, not margin, on .hero-in: a margin would collapse through) */
+  .hero-in { display: grid; grid-template-columns: min(46%, 30vh) minmax(0, 1fr); grid-template-columns: min(46%, 30svh) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr; column-gap: 14px; padding: 14px var(--gut) 26px; }
+  .hero-media { grid-column: 1; grid-row: 1 / span 3; width: 100%; height: auto; max-height: none; aspect-ratio: 9 / 16;
+    border-radius: 12px; border: 3px solid var(--navy-hi); }
   .hero-media::after { display: none; }
-  .hero-copy { margin-top: 0; padding-top: 20px; }
-  .clip-btn { top: auto; bottom: 10px; right: 8px; }
+  .hero-copy { display: contents; }
+  .hero h1 { grid-column: 2; width: 100%; max-width: 230px; margin: 4px 0 .5rem -4px; }
+  .tagline { grid-column: 2; font-size: .92rem; letter-spacing: .1em; }
+  .pitch { grid-column: 2; font-size: clamp(1.12rem, .5rem + 3vw, 1.6rem); margin-bottom: 0; }
+  .get, .get-note, .cred { grid-column: 1 / -1; }
+  .get { margin-top: 16px; gap: 8px 16px; }
+  .get-note { margin-top: .5rem; }
+  .cred { margin-top: .8rem; }
+  .clip-btn { top: auto; bottom: 6px; left: 6px; right: 6px; font-size: .8rem; line-height: 1.15; padding: .5em .4em; text-wrap: balance; }
 }
 @media (min-width: 720px) and (max-height: 560px) {
   .hero-in { align-items: start; }
@@ -342,6 +352,16 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 .policy .date { color: var(--ink-soft); font-family: var(--f-cond); font-weight: 700; letter-spacing: .03em; }
 .policy p { max-width: none; }
 
+/* the questions page */
+.faq-list { list-style: none; padding: 0 !important; margin: 1.2rem 0 0; border-top: 3px solid var(--ink); }
+.faq-list li { margin: 0; border-bottom: 1px solid #D8CDB3; }
+.faq-list a { display: flex; align-items: center; min-height: 44px; padding: .3em 0; text-decoration: none; font-family: var(--f-cond); font-weight: 700; font-size: 1.15rem; letter-spacing: .01em; line-height: 1.2; }
+.faq-list a:hover { text-decoration: underline; }
+.faq h2 { scroll-margin-top: 12px; }
+.faq-get { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 3px solid var(--ink); max-width: none; }
+.faq-get .cta { color: var(--ink); }
+.faq-out { font: 700 1.15rem/1.1 var(--f-cond); text-transform: uppercase; letter-spacing: .05em; }
+
 /* press kit */
 .press-wide { max-width: var(--wide); }
 .facts-table { border-collapse: collapse; width: 100%; max-width: 46rem; font-size: 1.05rem; }
@@ -395,6 +415,17 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 .sec--navy .again span { color: var(--cream-dim); }
 .career .again, .stumps-again { grid-column: 1 / -1; }
 
+/* your career, written down: the scorer and the Hall of Fame, a real screen each */
+.written { margin-top: clamp(40px, 6vw, 72px); border-top: 3px solid var(--ink); padding-top: 1.2rem; }
+.written h3 { font-family: var(--f-display); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(1.7rem, 1.2rem + 2vw, 2.4rem); line-height: 1; margin-bottom: .8em; }
+.written-grid { display: grid; gap: 32px; }
+.written-item { display: grid; gap: 14px; align-items: start; max-width: 34rem; }
+.written-item img { width: min(66vw, 300px); }
+@media (min-width: 560px) { .written-item { grid-template-columns: 215px minmax(0, 1fr); gap: 20px; } .written-item img { width: 100%; } }
+.written-item figcaption { margin: 0; font: 500 1.05rem/1.45 var(--f-body); letter-spacing: 0; color: var(--ink); }
+.written-item strong { display: block; font-family: var(--f-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; font-size: 1.2rem; line-height: 1.1; margin-bottom: .35em; color: var(--red); }
+@media (min-width: 900px) { .written-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+
 /* the phone's pre-register bar: after the hero, never over the content (the footer makes room for it) */
 .stick { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--navy-deep); border-top: 3px solid var(--lime);
@@ -420,4 +451,23 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
   .bat-shot { width: min(66vw, 300px); }
   .mgr-shot { max-width: min(66vw, 300px); }
   .records img { width: min(56vw, 230px); }
+}
+
+/* ---------------------------------------------------------------- a dark scheme: the paper sections go navy; the
+   screenshots, the lime band and the buttons stay as they are */
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: light dark; --night: #0F1D3D; --sky: #9CC2FF; }
+  body, .page, .sec--cream, .formats, .cost { background: var(--night); color: var(--cream); }
+  .sec--cream figcaption, .formats figcaption, .pair figcaption, .page small, .cost .small, .page .small,
+  .sec--cream .again span, .formats .again span, .news .lead, .policy .date { color: var(--cream-dim); }
+  .written-item figcaption { color: var(--cream); }
+  .ladder .age, .ledger dt, .post-date, .written-item strong, .formats .board caption, .facts-table th { color: var(--lime); }
+  .ladder li::before { background: var(--navy-hi); }
+  .ladder img, .sec--cream .shot, .formats .shot, .page .shot, .shots-grid img, .art-grid img, .post-img { border-color: var(--navy-hi); }
+  .ledger, .written, .news-post, .faq-list, .faq-get { border-top-color: var(--cream-dim); }
+  .ledger > div, .modes > div, .faq-list li, .facts-table th, .facts-table td { border-bottom-color: var(--navy-hi); }
+  .doc a { color: var(--sky); }
+  .doc .zip { color: var(--lime); }
+  .doc .faq-get .cta { color: var(--ink); }
+  .desc { background: var(--navy); color: var(--cream); border-color: var(--navy-hi); }
 }
