@@ -82,17 +82,22 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 
 /* ---------------------------------------------------------------- the hero: the last ball, under the lights */
 .hero { background: var(--navy-deep); color: var(--cream); position: relative; }
-.hero-media { position: relative; overflow: hidden; background: #1a2550; height: min(55vh, 124vw); height: min(55svh, 124vw); max-height: 760px; }
-.hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-.hero-media video { opacity: 0; transition: opacity .4s ease; }
-.hero-media video.on { opacity: 1; }
-.hero-media::after { /* the clip fades into the page under the logo */
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 28%;
-  background: linear-gradient(to bottom, rgba(11, 23, 51, 0), var(--navy-deep) 92%);
-  pointer-events: none;
-}
+.hero-media { position: relative; }
+/* the trailer: our own poster and a play button; the YouTube player replaces it after a tap */
+.trailer { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; border: 3px solid var(--navy-hi); background: #1a2550; color: var(--cream); }
+.trailer img, .trailer iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.trailer .play { position: absolute; left: 12px; bottom: 12px; width: 64px; height: 64px; border-radius: 50%; background: var(--lime); border: 3px solid var(--ink); box-shadow: 0 4px 0 var(--ink); }
+.trailer .play::after { content: ""; position: absolute; left: 23px; top: 16px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent var(--ink); }
+.trailer:hover .play { background: #D9F86A; }
+.trailer-len { position: absolute; left: 86px; bottom: 26px; font: 700 1rem/1 var(--f-cond); text-transform: uppercase; letter-spacing: .05em; color: var(--cream); background: rgba(11, 23, 51, .86); padding: .5em .7em; border-radius: 6px; }
+.post-trailer { max-width: 640px; margin: 0 0 1rem; }
+/* the clip of the last ball (the batting section) */
+.clip-frame { position: relative; overflow: hidden; aspect-ratio: 9 / 16; border-radius: 14px; border: 3px solid var(--navy-hi); background: #1a2550; }
+.clip-frame img, .clip-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+.clip-frame video { opacity: 0; transition: opacity .4s ease; }
+.clip-frame video.on { opacity: 1; }
 .clip-btn {
-  position: absolute; right: 8px; top: 40px; z-index: 2;
+  position: absolute; right: 8px; bottom: 10px; z-index: 2;
   font: 700 .88rem/1 var(--f-cond); text-transform: uppercase; letter-spacing: .05em;
   color: var(--cream); background: rgba(11, 23, 51, .82); border: 2px solid var(--cream-dim);
   padding: .55em .8em; border-radius: 6px; cursor: pointer; min-height: 44px;
@@ -127,10 +132,9 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 @media (min-width: 720px) {
   .top { position: absolute; left: 0; right: 0; top: 0; z-index: 3; background: transparent; }
   .hero { padding-top: 70px; }
-  .hero-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 64px); align-items: center; max-width: var(--wide); margin: 0 auto; padding: 8px var(--gut) 56px; }
-  .hero-media { order: 2; height: min(80vh, 720px); width: auto; aspect-ratio: 9 / 16; border-radius: 18px; border: 3px solid var(--navy-hi); max-height: none; }
-  .clip-btn { top: auto; bottom: 12px; right: 10px; }
-  .hero-media::after { display: none; }
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 56px); align-items: center; max-width: var(--wide); margin: 0 auto; padding: 24px var(--gut) 64px; }
+  .hero-media { order: 2; width: min(52vw, 640px); }
+  .trailer { border-radius: 18px; }
   .hero-copy { order: 1; margin: 0; padding: 0; }
   .hero h1 { width: min(100%, 600px); margin-left: -16px; margin-bottom: 1.2rem; }
   .badge { width: 190px; }
@@ -140,26 +144,21 @@ h3 { font-family: var(--f-cond); font-weight: 700; font-size: 1.35rem; text-tran
 /* the hero clip shows its whole frame everywhere: on a phone a portrait card above the logo (nothing on top of
    the shot), on a short landscape screen a card that fits the height */
 @media (max-width: 719px) {
-  /* the whole clip on the left, the name and the pitch beside it, the button and the date under both: all of it on the
-     first screen of a 360 x 740 phone (padding, not margin, on .hero-in: a margin would collapse through) */
-  .hero-in { display: grid; grid-template-columns: min(46%, 30vh) minmax(0, 1fr); grid-template-columns: min(46%, 30svh) minmax(0, 1fr);
-    grid-template-rows: auto auto 1fr; column-gap: 14px; padding: 14px var(--gut) 26px; }
-  .hero-media { grid-column: 1; grid-row: 1 / span 3; width: 100%; height: auto; max-height: none; aspect-ratio: 9 / 16;
-    border-radius: 12px; border: 3px solid var(--navy-hi); }
-  .hero-media::after { display: none; }
-  .hero-copy { display: contents; }
-  .hero h1 { grid-column: 2; width: 100%; max-width: 230px; margin: 4px 0 .5rem -4px; }
-  .tagline { grid-column: 2; font-size: .92rem; letter-spacing: .1em; }
-  .pitch { grid-column: 2; font-size: clamp(1.12rem, .5rem + 3vw, 1.6rem); margin-bottom: 0; }
-  .get, .get-note, .cred { grid-column: 1 / -1; }
-  .get { margin-top: 16px; gap: 8px 16px; }
+  /* a phone: the trailer across the top, then the name, the pitch, the button and the date, all on the first screen of a
+     360 x 740 phone (padding, not margin, on .hero-in: a margin would collapse through) */
+  .hero-in { padding: 12px var(--gut) 26px; }
+  .hero-media { max-width: 520px; margin: 0 auto; }
+  .hero-copy { margin-top: 0; padding: 14px 0 0; }
+  .hero h1 { width: min(52vw, 230px); margin: 0 0 .3rem -4px; }
+  .tagline { font-size: .92rem; letter-spacing: .1em; margin-bottom: .35rem; }
+  .pitch { margin-bottom: .9rem; }
+  .get { gap: 8px 16px; }
   .get-note { margin-top: .5rem; }
   .cred { margin-top: .8rem; }
-  .clip-btn { top: auto; bottom: 6px; left: 6px; right: 6px; font-size: .8rem; line-height: 1.15; padding: .5em .4em; text-wrap: balance; }
 }
 @media (min-width: 720px) and (max-height: 560px) {
   .hero-in { align-items: start; }
-  .hero-media { height: calc(100vh - 90px); height: calc(100svh - 90px); }
+  .hero-media { width: min(44vw, calc((100vh - 110px) * 16 / 9)); }
   .hero h1 { width: min(100%, 360px); }
 }
 
@@ -178,11 +177,14 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 /* batting: the screenshot hangs off the stripes, the words beside it */
 .bat-shot figcaption { transform: rotate(2deg); margin-top: .9rem; }
 .bat-in { display: grid; gap: 28px; }
-.bat-shot { width: min(84%, 380px); margin-top: calc(-1 * clamp(56px, 9vw, 120px) - 8px); transform: rotate(-2deg); }
+.bat-media { display: grid; gap: 26px; align-content: start; margin-top: calc(-1 * clamp(56px, 9vw, 120px) - 8px); }
+.clip-card { width: min(66vw, 300px); }
+.clip-card .clip-frame { box-shadow: 8px 8px 0 var(--ink); }
+.bat-shot { width: min(84%, 380px); transform: rotate(-2deg); }
 .bat-shot .shot { box-shadow: 8px 8px 0 var(--ink); }
 @media (min-width: 720px) {
-  .bat-in { grid-template-columns: minmax(240px, 380px) minmax(0, 1fr); gap: clamp(32px, 6vw, 72px); align-items: start; }
-  .bat-shot { width: 100%; }
+  .bat-in { grid-template-columns: minmax(200px, 270px) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+  .bat-shot, .clip-card { width: 100%; }
   .bat-copy { padding-top: 32px; }
 }
 
@@ -403,7 +405,7 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  .hero-media video, .clip-btn, .share { display: none !important; }
+  .clip-frame video, .clip-btn, .share, .trailer .play { display: none !important; }
 }
 
 /* the pre-register link repeated at the end of a section */
@@ -414,6 +416,11 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
 .sec--navy .again a, .stumps .again a { color: var(--lime); text-decoration-color: var(--lime); }
 .sec--navy .again span { color: var(--cream-dim); }
 .career .again, .stumps-again { grid-column: 1 / -1; }
+@media (min-width: 1000px) { /* the clip and the controls side by side */
+  .bat-in { grid-template-columns: minmax(0, 540px) minmax(0, 1fr); }
+  .bat-media { grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  .bat-media .bat-shot { margin-top: 40px; }
+}
 
 /* your career, written down: the scorer and the Hall of Fame, a real screen each */
 .written { margin-top: clamp(40px, 6vw, 72px); border-top: 3px solid var(--ink); padding-top: 1.2rem; }

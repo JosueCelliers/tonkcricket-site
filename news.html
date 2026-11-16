@@ -42,6 +42,21 @@
   <h1>What&rsquo;s new</h1>
   <p class="lead">News about Tonk! Cricket and notes on each update, newest first.</p>
 
+  <article class="news-post" id="the-trailer">
+    <p class="post-date"><time datetime="2026-11-16">16 November 2026</time></p>
+    <h2>The trailer</h2>
+    <div class="post-trailer">
+      <a class="trailer" href="https://www.youtube.com/watch?v=je57xUyOyPU" data-yt="je57xUyOyPU" aria-label="Play the trailer (52 seconds, opens a YouTube player)">
+        <img src="img/trailer-640.webp" srcset="img/trailer-640.webp 640w, img/trailer-960.webp 960w" sizes="(min-width: 720px) 640px, 92vw" width="640" height="360" loading="lazy" decoding="async"
+             alt="A batter in a sunhat plays the ball off his pads at dusk, with a village ground behind him.">
+        <span class="play" aria-hidden="true"></span>
+        <span class="trailer-len">Trailer, 52 s</span>
+      </a>
+    </div>
+    <p>Our new trailer. Everything in it is the game, cut to music we wrote. It comes out on Google Play on 3 December.</p>
+    <p class="again"><a href="https://play.google.com/store/apps/details?id=com.tonkcricket.game&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dprereg%26utm_content%3Dnews-trailer">Pre-register on Google Play</a><span>Out 3 December</span></p>
+  </article>
+
   <article class="news-post" id="pre-registration-is-open">
     <p class="post-date"><time datetime="2026-11-09">9 November 2026</time></p>
     <h2>Pre-registration is open</h2>
@@ -70,6 +85,28 @@
     <p class="legal">Google Play and the Google Play logo are trademarks of Google LLC. &copy; 2026 Muppet Dev.</p>
   </div>
 </footer>
+<script>
+(function () {
+  // The trailer: nothing is asked of YouTube until the visitor presses play. Without JavaScript the link opens YouTube.
+  var tr = document.querySelector('a.trailer[data-yt]');
+  if (tr) {
+    var warm = function () {
+      if (warm.done) return; warm.done = true;
+      var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://www.youtube-nocookie.com'; document.head.appendChild(l);
+    };
+    tr.addEventListener('pointerover', warm); tr.addEventListener('touchstart', warm, { passive: true });
+    tr.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+      e.preventDefault();
+      var box = document.createElement('div'), f = document.createElement('iframe');
+      box.className = 'trailer trailer--on';
+      f.src = 'https://www.youtube-nocookie.com/embed/' + tr.getAttribute('data-yt') + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      f.title = 'Tonk! Cricket trailer'; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.loading = 'eager';
+      box.appendChild(f); tr.parentNode.replaceChild(box, tr); f.focus();
+    });
+  }
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5673495f2e7742f28be498f2300f4749"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
