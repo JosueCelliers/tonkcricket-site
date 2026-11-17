@@ -460,6 +460,21 @@ figcaption { font-family: var(--f-cond); font-weight: 700; font-size: 1rem; lett
   .records img { width: min(56vw, 230px); }
 }
 
+/* 18 Nov: the game's own HOW DO YOU WANT TO BAT? card, the career's extras, two screens side by side in a news post */
+.schemes { width: min(76vw, 340px); margin: 1.2rem 0 1.5rem; }
+.schemes .shot { box-shadow: 6px 6px 0 var(--ink); }
+@media (min-width: 720px) { .bowl .mgr-in { grid-template-columns: minmax(220px, 320px) minmax(0, 1fr); } }
+.along .modes { max-width: 44rem; }
+.along .modes > div { grid-template-columns: 9.5em minmax(0, 1fr); }
+@media (max-width: 420px) { .along .modes > div { grid-template-columns: 1fr; } }
+.post-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 14px; margin: 1.2rem 0 1.4rem; }
+.post-shots img { width: 100%; border-radius: 12px; border: 3px solid var(--ink); background: var(--navy); }
+.post-shots figcaption { color: var(--ink-soft); }
+@media (prefers-color-scheme: dark) {
+  .post-shots img { border-color: var(--navy-hi); }
+  .post-shots figcaption { color: var(--cream-dim); }
+}
+
 /* ---------------------------------------------------------------- a dark scheme: the paper sections go navy; the
    screenshots, the lime band and the buttons stay as they are */
 @media (prefers-color-scheme: dark) {
